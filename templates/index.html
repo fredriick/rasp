@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Scraper</title>
+    <style>
+        #scraped-data {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleData() {
+            var dataSection = document.getElementById("scraped-data");
+            var toggleButton = document.getElementById("toggle-button");
+            
+            if (dataSection.style.display === "none") {
+                dataSection.style.display = "block";
+                toggleButton.innerText = "Hide Scraped Data";
+            } else {
+                dataSection.style.display = "none";
+                toggleButton.innerText = "Show Scraped Data";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Web Scraper</h1>
+    <form action="/" method="post">
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" required><br><br>
+        <label for="element">Element to Scrape:</label>
+        <input type="text" id="element" name="element" required><br><br>
+        <input type="submit" value="Scrape">
+    </form>
+
+    <!-- Toggle button for scraped data -->
+    <button id="toggle-button" onclick="toggleData()">Show Scraped Data</button>
+    
+    <!-- Scraped data section -->
+    <h2 id="scraped-data-heading">Scraped Data</h2>
+    <div id="scraped-data">
+        {{ data|safe }}
+    </div>
+
+</body>
+</html>
