@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Web Scraper</title>
+    <title>Web RASP</title>
     <style>
         #scraped-data {
             display: none;
@@ -23,11 +23,11 @@
     </script>
 </head>
 <body>
-    <h1>Web Scraper</h1>
+    <h1>Web RASP</h1>
     <form action="/" method="post">
         <label for="url">URL:</label>
         <input type="text" id="url" name="url" required><br><br>
-        <label for="element">Element to Scrape:</label>
+        <label for="element">Element to Scrape (select any html element to continue):</label>
         <input type="text" id="element" name="element" required><br><br>
         <input type="submit" value="Scrape">
     </form>
@@ -35,6 +35,10 @@
     <!-- Toggle button for scraped data -->
     <button id="toggle-button" onclick="toggleData()">Show Scraped Data</button>
     
+    <!-- Placeholder for chart -->
+    <h2>Data Visualization</h2>
+    <img src="data:image/png;base64,{{ chart }}" alt="Chart">
+
     <!-- Scraped data section -->
     <h2 id="scraped-data-heading">Scraped Data</h2>
     <div id="scraped-data">
